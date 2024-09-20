@@ -1,0 +1,23 @@
+{
+  "name": "backend-equipo",
+  "version": "1.0.0",
+  "description": "backend equipo",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kazuryto84/BackendTeam.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Kazuryto84/BackendTeam/issues"
+  },
+  "homepage": "https://github.com/Kazuryto84/BackendTeam#readme",
+  "dependencies": {
+    "express": "^4.21.0"
+  }
+}
