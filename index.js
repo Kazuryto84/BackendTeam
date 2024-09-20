@@ -42,6 +42,11 @@ app.delete('/player/:id', (req, res) => {
   res.json({ id: playerId });
 });
 
+app.post('/reset', (req, res) => {
+  players = [...initialPlayers];
+  res.json(players);
+});
+
 app.listen(port, () => {
   console.log(`API is running on http://localhost:${port}`);
 });
