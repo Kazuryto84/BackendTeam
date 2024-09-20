@@ -7,10 +7,12 @@ const port = process.env.PORT || 3200;
 app.use(cors());
 app.use(bodyParser.json());
 
-let players = [
+const initialPlayers = [
   { id: 2, name: 'Juan', number: 1, position: 1 },
   { id: 3, name: 'Unai', number: 4, position: 2 }
 ];
+
+let players = [...initialPlayers];
 
 app.get('/', (req, res) => {
   res.send('API is running');
@@ -30,8 +32,14 @@ app.post('/player', (req, res) => {
 app.put('/player/:id', (req, res) => {
   const playerId = parseInt(req.params.id, 10);
   const updatedPlayer = req.body;
-  players = players.map(player => (player.id === playerId ? updatedPlayer : player));
+  players = players.map(player => player.id === playerId ? updatedPlayer : player);
   res.json(updatedPlayer);
+});
+
+app.delete('/player/:id', (req, res) => {
+  const playerId = parseInt(req.params.id, 10);
+  players = players.filter(player => player.id !== playerId);
+  res.json({ id: playerId });
 });
 
 app.listen(port, () => {
